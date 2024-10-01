@@ -1,7 +1,19 @@
-package BasicProjects;
+ package BasicProjects;
 import java.util.Scanner;
+
 public class ScientificCalculator {
     static Scanner sc = new Scanner(System.in);
+
+    //FACTORIAL
+    public static int factorial (int a){
+
+        if(a == 0 || a == 1) {
+            return 1;
+        } else {
+            return a * factorial (a-1);
+        }
+
+    }
 
     // ADDITION
     public static void add() {
@@ -70,6 +82,8 @@ public class ScientificCalculator {
 
     }
 
+
+
     //sin
     public static void sin() {
         System.out.print("Enter the angle in degrees: ");
@@ -122,16 +136,16 @@ public class ScientificCalculator {
     //EXIT
     public static void exit () {
         System.out.println("EXITING....");
+        sc.close();
     }
     public static void main(String[] args) {
-
         System.out.println("\n");
         System.out.println("--------*** SCIENTIFIC CALCULATOR ***--------");
         int choice;
         do {
             System.out.println("\nOperations to perform:- ");
-            System.out.println("\n 1. Addition \n 2. Subtraction \n 3. Multiplication \n 4. Division \n 5. Power \n 6. Square \n 7. Square Root \n 8. Sin \n " +
-                    "9. Cos \n 10. Tan \n 11. Log base(10) \n 12. Log base(e) \n 13. Exit \n");
+            System.out.println("\n 1. Addition \n 2. Subtraction \n 3. Multiplication \n 4. Division \n 5. Power \n 6. Square \n 7. Square Root \n 8. Factorial \n 9. Sin \n " +
+                    "10. Cos \n 11. Tan \n 12. Log base(10) \n 13. Log base(e) \n 14. Exit \n");
 
             System.out.print("ENTER YOUR CHOICE: ");
             choice = sc.nextInt();
@@ -159,26 +173,33 @@ public class ScientificCalculator {
                     squareroot();
                     break;
                 case 8:
+                    System.out.print("Enter number: ");
+                   int a = sc.nextInt();
+                     int result = factorial (a);
+                    System.out.print("RESULT :- "+result);
+                     break;
+                case 9:
                     sin();
                     break;
-                case 9:
+                case 10:
                     cos();
                     break;
-                case 10:
+                case 11:
                     tan();
                     break;
-                case 11:
+                case 12:
                     log10();
                     break;
-                case 12:
+                case 13:
                     log();
                     break;
-                case 13:
+                case 14:
                     exit();
+                    break;
                 default:
                     System.out.println("Invalid choice!!");
             }
-        } while (choice != 13);
+        } while (choice != 14);
 
     }
     }
